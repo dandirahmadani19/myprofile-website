@@ -27,7 +27,7 @@ export default function Skills() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="border-l-2 border-[#ff6b00] pl-4 md:pl-6"
+              className="border-l-2 border-accent pl-4 md:pl-6"
             >
               <h3 className="text-base md:text-lg font-bold font-[family-name:var(--font-space-grotesk)] mb-2 md:mb-3">
                 {category.label}
@@ -40,15 +40,17 @@ export default function Skills() {
                 viewport={{ once: true }}
                 className="flex flex-wrap gap-1.5 md:gap-2"
               >
-                {skills[category.key as keyof typeof skills].map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    variants={staggerItem}
-                    className="px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] border border-[#333] text-[#aaa] hover:border-[#ff6b00] hover:text-[#ff6b00] transition-colors"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
+                {skills[category.key as keyof typeof skills].map(
+                  (skill, index) => (
+                    <motion.span
+                      key={skill}
+                      variants={staggerItem}
+                      className="px-2 md:px-3 py-1 md:py-1.5 text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] border border-[#333] text-[#aaa] hover:border-accent hover:text-accent transition-colors"
+                    >
+                      {skill}
+                    </motion.span>
+                  ),
+                )}
               </motion.div>
             </motion.div>
           ))}

@@ -11,12 +11,12 @@ interface TypewriterProps {
   onComplete?: () => void;
 }
 
-export default function Typewriter({ 
-  text, 
-  delay = 0, 
-  speed = 50, 
+export default function Typewriter({
+  text,
+  delay = 0,
+  speed = 50,
   className = "",
-  onComplete 
+  onComplete,
 }: TypewriterProps) {
   const [displayText, setDisplayText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
@@ -49,12 +49,12 @@ export default function Typewriter({
     <span className={className}>
       {displayText}
       <motion.span
-        className="inline-block w-[3px] h-[1em] bg-[#ff6b00] ml-1 align-middle"
+        className="inline-block w-[3px] h-[1em] bg-accent ml-1 align-middle"
         animate={{ opacity: isComplete ? [1, 0] : 1 }}
-        transition={{ 
-          repeat: isComplete ? Infinity : 0, 
+        transition={{
+          repeat: isComplete ? Infinity : 0,
           duration: 0.8,
-          repeatType: "reverse"
+          repeatType: "reverse",
         }}
       />
     </span>

@@ -10,7 +10,9 @@ import { projects } from "@/data/profile";
 import { staggerContainer, staggerItem } from "../animations/variants";
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
 
   return (
     <section id="projects" className="py-16 md:py-24 px-4 md:px-6">
@@ -29,18 +31,18 @@ export default function Projects() {
               key={project.name}
               variants={staggerItem}
               onClick={() => setSelectedProject(project)}
-              whileHover={{ y: -5, borderColor: "#ff6b00" }}
+              whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
-              className="border border-[#1a1a1a] bg-gradient-to-br from-[#0a0a0a] to-[#080808] p-4 md:p-6 flex flex-col h-full cursor-pointer rounded-lg group"
+              className="border border-[#1a1a1a] bg-gradient-to-br from-[#0a0a0a] to-[#080808] p-4 md:p-6 flex flex-col h-full cursor-pointer rounded-lg group transition-all duration-300 hover:border-[var(--accent)]"
             >
               <div className="flex items-center justify-between mb-2 md:mb-3">
-                <span className="text-[#ff6b00] text-xl md:text-2xl">📁</span>
+                <span className="text-accent text-xl md:text-2xl">📁</span>
                 <span className="text-[#666] text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] bg-[#111] px-2 py-0.5 rounded">
                   {project.period}
                 </span>
               </div>
 
-              <h3 className="text-sm md:text-lg font-bold font-[family-name:var(--font-space-grotesk)] mb-1.5 md:mb-2 group-hover:text-[#ff6b00] transition-colors">
+              <h3 className="text-sm md:text-lg font-bold font-[family-name:var(--font-space-grotesk)] mb-1.5 md:mb-2 group-hover:text-accent transition-colors">
                 {project.name}
               </h3>
 
@@ -49,9 +51,9 @@ export default function Projects() {
               </p>
 
               {/* Impact with star icon */}
-              <div className="flex items-start gap-2 mb-3 md:mb-4 p-2 bg-[#ff6b00]/5 rounded border-l-2 border-[#ff6b00]">
-                <FaStar className="text-[#ff6b00] text-xs mt-0.5 flex-shrink-0" />
-                <p className="text-[#ff6b00] text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] line-clamp-2">
+              <div className="flex items-start gap-2 mb-3 md:mb-4 p-2 bg-accent/5 rounded border-l-2 border-accent">
+                <FaStar className="text-accent text-xs mt-0.5 flex-shrink-0" />
+                <p className="text-accent text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] line-clamp-2">
                   {project.impact}
                 </p>
               </div>
@@ -65,7 +67,7 @@ export default function Projects() {
                 </div>
               </div>
 
-              <p className="text-[#666] text-[10px] md:text-xs mt-2 md:mt-3 text-right opacity-60 group-hover:opacity-100 group-hover:text-[#ff6b00] transition-all">
+              <p className="text-[#666] text-[10px] md:text-xs mt-2 md:mt-3 text-right opacity-60 group-hover:opacity-100 group-hover:text-accent transition-all">
                 Click for details →
               </p>
             </motion.div>

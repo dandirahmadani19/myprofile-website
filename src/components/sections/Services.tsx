@@ -11,7 +11,10 @@ export default function Services() {
   const whatsappLink = `https://wa.me/${profile.whatsapp}?text=Hi%20Dandi,%20I'd%20like%20to%20discuss%20a%20project%20with%20you!`;
 
   return (
-    <section id="services" className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-[#0a0a0a] to-black">
+    <section
+      id="services"
+      className="py-16 md:py-24 px-4 md:px-6 bg-gradient-to-b from-[#0a0a0a] to-black"
+    >
       <div className="max-w-6xl mx-auto">
         <SectionTitle title="SERVICES" />
 
@@ -32,10 +35,12 @@ export default function Services() {
               transition={{ delay: index * 0.1 }}
               className="text-center p-4 md:p-6 border border-[#1a1a1a] bg-[#0a0a0a]"
             >
-              <span className="text-2xl md:text-4xl font-bold text-[#ff6b00] font-[family-name:var(--font-space-grotesk)]">
+              <span className="text-2xl md:text-4xl font-bold text-accent font-[family-name:var(--font-space-grotesk)]">
                 {stat.value}
               </span>
-              <p className="text-xs md:text-sm text-[#888] mt-1 md:mt-2">{stat.label}</p>
+              <p className="text-xs md:text-sm text-[#888] mt-1 md:mt-2">
+                {stat.label}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -47,7 +52,7 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 md:mb-12"
         >
-          <span className="text-[#ff6b00] text-xs md:text-sm font-[family-name:var(--font-jetbrains-mono)] mb-2 block">
+          <span className="text-accent text-xs md:text-sm font-[family-name:var(--font-jetbrains-mono)] mb-2 block">
             {freelanceServices.subheadline}
           </span>
           <h3 className="text-xl md:text-3xl font-bold font-[family-name:var(--font-space-grotesk)] mb-3 md:mb-4">
@@ -69,14 +74,18 @@ export default function Services() {
             <motion.div
               key={service.title}
               variants={staggerItem}
-              whileHover={{ y: -5, borderColor: "#ff6b00" }}
+              whileHover={{ y: -5, borderColor: "var(--accent)" }}
               className="border border-[#1a1a1a] bg-[#0a0a0a] p-4 md:p-6 text-center"
             >
-              <span className="text-3xl md:text-4xl mb-3 md:mb-4 block">{service.icon}</span>
+              <span className="text-3xl md:text-4xl mb-3 md:mb-4 block">
+                {service.icon}
+              </span>
               <h4 className="text-base md:text-lg font-bold font-[family-name:var(--font-space-grotesk)] mb-2">
                 {service.title}
               </h4>
-              <p className="text-xs md:text-sm text-[#888]">{service.description}</p>
+              <p className="text-xs md:text-sm text-[#888]">
+                {service.description}
+              </p>
             </motion.div>
           ))}
         </motion.div>
@@ -99,7 +108,7 @@ export default function Services() {
             </Link>
             <Link
               href={`mailto:${profile.email}`}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 border-2 border-[#ff6b00] text-[#ff6b00] font-bold text-sm md:text-lg hover:bg-[#ff6b00] hover:text-black transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 border-2 border-accent text-accent font-bold text-sm md:text-lg hover:bg-accent hover:text-black transition-all duration-300"
             >
               <FaEnvelope size={18} />
               <span>Send Email</span>

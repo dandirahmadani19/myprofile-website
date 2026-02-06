@@ -63,7 +63,7 @@ export default function GitHubRepos() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              className="w-8 h-8 border-2 border-[#ff6b00] border-t-transparent rounded-full"
+              className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full"
             />
           </div>
         )}
@@ -78,7 +78,7 @@ export default function GitHubRepos() {
             <Link
               href={profile.github}
               target="_blank"
-              className="text-[#ff6b00] hover:underline"
+              className="text-accent hover:underline"
             >
               Visit my GitHub profile →
             </Link>
@@ -97,11 +97,11 @@ export default function GitHubRepos() {
               <motion.div
                 key={repo.id}
                 variants={staggerItem}
-                whileHover={{ y: -5, borderColor: "#ff6b00" }}
+                whileHover={{ y: -5, borderColor: "var(--accent)" }}
                 className="border border-[#1a1a1a] bg-[#0a0a0a] p-6"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-[#ff6b00] text-lg">📦</span>
+                  <span className="text-accent text-lg">📦</span>
                   <div className="flex items-center gap-4 text-[#888] text-sm">
                     <span className="flex items-center gap-1">
                       <FaStar className="text-yellow-500" />
@@ -139,7 +139,7 @@ export default function GitHubRepos() {
                   <Link
                     href={repo.html_url}
                     target="_blank"
-                    className="text-[#ff6b00] text-sm hover:underline"
+                    className="text-accent text-sm hover:underline"
                   >
                     View Repo →
                   </Link>
@@ -158,7 +158,7 @@ export default function GitHubRepos() {
           <Link
             href={profile.github}
             target="_blank"
-            className="inline-block px-6 py-3 border border-[#ff6b00] text-[#ff6b00] hover:bg-[#ff6b00] hover:text-black transition-all duration-300"
+            className="inline-block px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300"
           >
             View GitHub Profile
           </Link>

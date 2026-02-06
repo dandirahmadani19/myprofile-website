@@ -3,7 +3,14 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { profile } from "@/data/profile";
-import { FaGithub, FaLinkedin, FaMedium, FaWhatsapp, FaEnvelope, FaArrowUp } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaMedium,
+  FaWhatsapp,
+  FaEnvelope,
+  FaArrowUp,
+} from "react-icons/fa";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -30,7 +37,7 @@ export default function Footer() {
             <Link
               href={profile.github}
               target="_blank"
-              className="text-lg md:text-xl text-[#888] hover:text-[#ff6b00] transition-colors"
+              className="text-lg md:text-xl text-[#888] hover:text-accent transition-colors"
               aria-label="GitHub"
             >
               <FaGithub />
@@ -38,7 +45,7 @@ export default function Footer() {
             <Link
               href={profile.linkedin}
               target="_blank"
-              className="text-lg md:text-xl text-[#888] hover:text-[#ff6b00] transition-colors"
+              className="text-lg md:text-xl text-[#888] hover:text-accent transition-colors"
               aria-label="LinkedIn"
             >
               <FaLinkedin />
@@ -46,7 +53,7 @@ export default function Footer() {
             <Link
               href={profile.medium}
               target="_blank"
-              className="text-lg md:text-xl text-[#888] hover:text-[#ff6b00] transition-colors"
+              className="text-lg md:text-xl text-[#888] hover:text-accent transition-colors"
               aria-label="Medium"
             >
               <FaMedium />
@@ -61,7 +68,7 @@ export default function Footer() {
             </Link>
             <Link
               href={`mailto:${profile.email}`}
-              className="text-lg md:text-xl text-[#888] hover:text-[#ff6b00] transition-colors"
+              className="text-lg md:text-xl text-[#888] hover:text-accent transition-colors"
               aria-label="Email"
             >
               <FaEnvelope />
@@ -72,7 +79,7 @@ export default function Footer() {
             onClick={scrollToTop}
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2.5 md:p-3 border border-[#ff6b00] text-[#ff6b00] hover:bg-[#ff6b00] hover:text-black transition-all duration-300"
+            className="p-2.5 md:p-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300"
             aria-label="Back to top"
           >
             <FaArrowUp />

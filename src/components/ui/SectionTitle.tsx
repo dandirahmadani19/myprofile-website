@@ -23,7 +23,7 @@ export default function SectionTitle({ title }: SectionTitleProps) {
       </motion.h2>
       <motion.div
         variants={drawLine}
-        className="h-[2px] bg-[#ff6b00] mt-3 max-w-[100px]"
+        className="h-[2px] bg-accent mt-3 max-w-[100px]"
       />
     </motion.div>
   );

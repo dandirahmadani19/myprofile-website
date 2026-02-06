@@ -23,12 +23,12 @@ export default function Education() {
             <motion.div
               key={edu.institution}
               variants={staggerItem}
-              whileHover={{ borderColor: "#ff6b00" }}
+              whileHover={{ borderColor: "var(--accent)" }}
               className="border border-[#1a1a1a] bg-[#0a0a0a] p-6"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">🎓</span>
-                <span className="text-[#ff6b00] text-sm font-[family-name:var(--font-jetbrains-mono)]">
+                <span className="text-accent text-sm font-[family-name:var(--font-jetbrains-mono)]">
                   {edu.period}
                 </span>
               </div>
@@ -47,12 +47,12 @@ export default function Education() {
             <motion.div
               key={cert.name}
               variants={staggerItem}
-              whileHover={{ borderColor: "#ff6b00" }}
+              whileHover={{ borderColor: "var(--accent)" }}
               className="border border-[#1a1a1a] bg-[#0a0a0a] p-6"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">📜</span>
-                <span className="text-[#ff6b00] text-sm font-[family-name:var(--font-jetbrains-mono)]">
+                <span className="text-accent text-sm font-[family-name:var(--font-jetbrains-mono)]">
                   {cert.period}
                 </span>
               </div>

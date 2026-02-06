@@ -30,11 +30,11 @@ export default function Header() {
           <motion.div
             animate={{
               background: [
-                "radial-gradient(circle at 0% 0%, #ff6b00 0%, transparent 50%)",
-                "radial-gradient(circle at 100% 0%, #ff6b00 0%, transparent 50%)",
-                "radial-gradient(circle at 100% 100%, #ff6b00 0%, transparent 50%)",
-                "radial-gradient(circle at 0% 100%, #ff6b00 0%, transparent 50%)",
-                "radial-gradient(circle at 0% 0%, #ff6b00 0%, transparent 50%)",
+                "radial-gradient(circle at 0% 0%, var(--accent) 0%, transparent 50%)",
+                "radial-gradient(circle at 100% 0%, var(--accent) 0%, transparent 50%)",
+                "radial-gradient(circle at 100% 100%, var(--accent) 0%, transparent 50%)",
+                "radial-gradient(circle at 0% 100%, var(--accent) 0%, transparent 50%)",
+                "radial-gradient(circle at 0% 0%, var(--accent) 0%, transparent 50%)",
               ],
             }}
             transition={{
@@ -59,7 +59,7 @@ export default function Header() {
             repeat: Infinity,
             ease: "easeInOut",
           }}
-          className="absolute -left-10 -top-10 w-32 h-32 bg-[#ff6b00] blur-[80px] rounded-full"
+          className="absolute -left-10 -top-10 w-32 h-32 bg-accent blur-[80px] rounded-full"
         />
         <motion.div
           animate={{
@@ -74,7 +74,7 @@ export default function Header() {
             ease: "easeInOut",
             delay: 2,
           }}
-          className="absolute right-20 -top-5 w-40 h-24 bg-[#ff6b00] blur-[60px] rounded-full"
+          className="absolute right-20 -top-5 w-40 h-24 bg-accent blur-[60px] rounded-full"
         />
         <motion.div
           animate={{
@@ -87,7 +87,7 @@ export default function Header() {
             ease: "easeInOut",
             delay: 4,
           }}
-          className="absolute left-1/3 top-0 w-24 h-16 bg-[#ff6b00] blur-[50px] rounded-full"
+          className="absolute left-1/3 top-0 w-24 h-16 bg-accent blur-[50px] rounded-full"
         />
 
         {/* Animated scanning line */}
@@ -100,9 +100,9 @@ export default function Header() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute bottom-0 left-0 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-[#ff6b00] to-transparent opacity-60"
+          className="absolute bottom-0 left-0 w-1/3 h-[2px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-60"
         />
-        
+
         {/* Secondary accent line moving opposite direction */}
         <motion.div
           animate={{
@@ -113,7 +113,7 @@ export default function Header() {
             repeat: Infinity,
             ease: "linear",
           }}
-          className="absolute bottom-0 left-0 w-1/4 h-[1px] bg-gradient-to-r from-transparent via-[#ff6b00]/50 to-transparent"
+          className="absolute bottom-0 left-0 w-1/4 h-[1px] bg-gradient-to-r from-transparent via-accent/50 to-transparent"
         />
 
         {/* Subtle particle dots */}
@@ -130,7 +130,7 @@ export default function Header() {
               ease: "easeInOut",
               delay: i * 0.5,
             }}
-            className="absolute w-1 h-1 bg-[#ff6b00] rounded-full"
+            className="absolute w-1 h-1 bg-accent rounded-full"
             style={{
               left: `${15 + i * 20}%`,
               bottom: "0px",
@@ -140,15 +140,15 @@ export default function Header() {
       </div>
 
       <nav className="relative max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
-        <Link 
-          href="/" 
-          className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)] text-white hover:text-[#ff6b00] transition-colors relative group"
+        <Link
+          href="/"
+          className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)] text-white hover:text-accent transition-colors relative group"
         >
           <span className="relative z-10">DR</span>
           <motion.span
             animate={{ opacity: [0.5, 1, 0.5] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="absolute -inset-2 bg-[#ff6b00]/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute -inset-2 bg-accent/10 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity"
           />
         </Link>
 
@@ -163,10 +163,10 @@ export default function Header() {
             >
               <Link
                 href={item.href}
-                className="text-xs lg:text-sm text-[#888] hover:text-[#ff6b00] transition-colors font-medium relative group"
+                className="text-xs lg:text-sm text-[#888] hover:text-accent transition-colors font-medium relative group"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#ff6b00] group-hover:w-full transition-all duration-300" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-accent group-hover:w-full transition-all duration-300" />
               </Link>
             </motion.div>
           ))}
@@ -180,15 +180,25 @@ export default function Header() {
         >
           <motion.div className="w-5 h-4 relative flex flex-col justify-between">
             <motion.span
-              animate={isOpen ? { rotate: 45, y: 6, backgroundColor: "#ff6b00" } : { rotate: 0, y: 0, backgroundColor: "#fff" }}
+              animate={
+                isOpen
+                  ? { rotate: 45, y: 6, backgroundColor: "var(--accent)" }
+                  : { rotate: 0, y: 0, backgroundColor: "#fff" }
+              }
               className="w-full h-[2px] block origin-center"
             />
             <motion.span
-              animate={isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
+              animate={
+                isOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }
+              }
               className="w-full h-[2px] bg-white block"
             />
             <motion.span
-              animate={isOpen ? { rotate: -45, y: -6, backgroundColor: "#ff6b00" } : { rotate: 0, y: 0, backgroundColor: "#fff" }}
+              animate={
+                isOpen
+                  ? { rotate: -45, y: -6, backgroundColor: "var(--accent)" }
+                  : { rotate: 0, y: 0, backgroundColor: "#fff" }
+              }
               className="w-full h-[2px] block origin-center"
             />
           </motion.div>
@@ -205,8 +215,8 @@ export default function Header() {
             className="md:hidden bg-black/98 border-t border-[#1a1a1a] overflow-hidden relative"
           >
             {/* Mobile menu glow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#ff6b00]/5 to-transparent pointer-events-none" />
-            
+            <div className="absolute inset-0 bg-gradient-to-b from-accent/5 to-transparent pointer-events-none" />
+
             <div className="px-4 py-4 flex flex-col gap-1 relative">
               {navItems.map((item, index) => (
                 <motion.div
@@ -218,7 +228,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-base text-[#888] hover:text-[#ff6b00] hover:bg-[#ff6b00]/5 transition-all block py-3 px-3 rounded-lg"
+                    className="text-base text-[#888] hover:text-accent hover:bg-accent/5 transition-all block py-3 px-3 rounded-lg"
                   >
                     {item.name}
                   </Link>

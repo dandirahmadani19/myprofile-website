@@ -58,7 +58,7 @@ export default function Articles() {
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
-              className="w-8 h-8 border-2 border-[#ff6b00] border-t-transparent rounded-full"
+              className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full"
             />
           </div>
         )}
@@ -69,19 +69,20 @@ export default function Articles() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-12"
           >
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#ff6b00]/10 flex items-center justify-center">
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-accent/10 flex items-center justify-center">
               <span className="text-2xl">✍️</span>
             </div>
             <h3 className="text-lg font-bold font-[family-name:var(--font-space-grotesk)] mb-2">
               Articles Coming Soon
             </h3>
             <p className="text-[#888] mb-4 max-w-md mx-auto text-sm">
-              I&apos;m working on new articles about software engineering, best practices, and lessons learned. Stay tuned!
+              I&apos;m working on new articles about software engineering, best
+              practices, and lessons learned. Stay tuned!
             </p>
             <Link
               href={profile.medium}
               target="_blank"
-              className="inline-flex items-center gap-2 text-[#ff6b00] hover:underline"
+              className="inline-flex items-center gap-2 text-accent hover:underline"
             >
               <span>Visit my Medium profile</span>
               <span>→</span>
@@ -101,10 +102,10 @@ export default function Articles() {
               <motion.div
                 key={article.link}
                 variants={staggerItem}
-                whileHover={{ y: -5, borderColor: "#ff6b00" }}
+                whileHover={{ y: -5, borderColor: "var(--accent)" }}
                 className="border border-[#1a1a1a] bg-gradient-to-br from-[#0a0a0a] to-[#080808] p-4 md:p-6 rounded-lg group"
               >
-                <span className="text-[#ff6b00] text-xs font-[family-name:var(--font-jetbrains-mono)] bg-[#ff6b00]/10 px-2 py-0.5 rounded">
+                <span className="text-accent text-xs font-[family-name:var(--font-jetbrains-mono)] bg-accent/10 px-2 py-0.5 rounded">
                   {new Date(article.pubDate).toLocaleDateString("en-US", {
                     year: "numeric",
                     month: "short",
@@ -112,7 +113,7 @@ export default function Articles() {
                   })}
                 </span>
 
-                <h3 className="text-base md:text-lg font-bold font-[family-name:var(--font-space-grotesk)] mt-3 mb-3 line-clamp-2 group-hover:text-[#ff6b00] transition-colors">
+                <h3 className="text-base md:text-lg font-bold font-[family-name:var(--font-space-grotesk)] mt-3 mb-3 line-clamp-2 group-hover:text-accent transition-colors">
                   {article.title}
                 </h3>
 
@@ -123,7 +124,7 @@ export default function Articles() {
                 <Link
                   href={article.link}
                   target="_blank"
-                  className="text-[#ff6b00] text-sm hover:underline inline-flex items-center gap-1"
+                  className="text-accent text-sm hover:underline inline-flex items-center gap-1"
                 >
                   Read on Medium <span>→</span>
                 </Link>
@@ -141,7 +142,7 @@ export default function Articles() {
           <Link
             href={profile.medium}
             target="_blank"
-            className="inline-block px-6 py-3 border border-[#ff6b00] text-[#ff6b00] hover:bg-[#ff6b00] hover:text-black transition-all duration-300 rounded-lg"
+            className="inline-block px-6 py-3 border border-accent text-accent hover:bg-accent hover:text-black transition-all duration-300 rounded-lg"
           >
             View All Articles
           </Link>

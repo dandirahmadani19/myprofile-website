@@ -26,10 +26,12 @@ export default function About() {
               transition={{ delay: index * 0.1 }}
               className="text-center p-3 md:p-6 border border-[#1a1a1a] bg-[#0a0a0a]"
             >
-              <span className="text-xl md:text-4xl font-bold text-[#ff6b00] font-[family-name:var(--font-space-grotesk)]">
+              <span className="text-xl md:text-4xl font-bold text-accent font-[family-name:var(--font-space-grotesk)]">
                 {item.value}
               </span>
-              <p className="text-[10px] md:text-sm text-[#888] mt-1 md:mt-2">{item.label}</p>
+              <p className="text-[10px] md:text-sm text-[#888] mt-1 md:mt-2">
+                {item.label}
+              </p>
             </motion.div>
           ))}
         </div>
