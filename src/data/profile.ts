@@ -1,3 +1,19 @@
+// IT career start: Realtegic Korporindo Investama, July 2022 (see data/companies.json in cv-update).
+const CAREER_START_DATE = new Date("2022-07-01");
+
+function getYearsOfExperience(): number {
+  const now = new Date();
+  let years = now.getFullYear() - CAREER_START_DATE.getFullYear();
+  const hadAnniversaryThisYear =
+    now.getMonth() > CAREER_START_DATE.getMonth() ||
+    (now.getMonth() === CAREER_START_DATE.getMonth() &&
+      now.getDate() >= CAREER_START_DATE.getDate());
+  if (!hadAnniversaryThisYear) years -= 1;
+  return years;
+}
+
+export const yearsOfExperience = getYearsOfExperience();
+
 export const profile = {
   name: "Dandi Rahmadani",
   title: "Full Stack Software Engineer",
@@ -9,7 +25,7 @@ export const profile = {
   linkedin: "https://linkedin.com/in/dandi-rahmadani",
   github: "https://github.com/dandirahmadani19",
   medium: "https://medium.com/@dandirahmadani19",
-  summary: `Full Stack Software Engineer with 4 years of experience delivering production systems in banking, fintech, and real estate software.
+  summary: `Full Stack Software Engineer with ${yearsOfExperience}+ years of experience delivering production systems in banking, fintech, and real estate software.
 
 I build backend services in Go and Node.js, ship responsive web apps with React and Next.js, and develop cross-platform mobile apps with Flutter and React Native.
 
@@ -300,7 +316,7 @@ export const freelanceServices = {
     },
   ],
   stats: [
-    { value: "4+", label: "Years Experience" },
+    { value: `${yearsOfExperience}+`, label: "Years Experience" },
     { value: "3", label: "Companies Served" },
   ],
 };

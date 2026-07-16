@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import SectionTitle from "../ui/SectionTitle";
-import { profile } from "@/data/profile";
+import { profile, yearsOfExperience } from "@/data/profile";
 
 export default function About() {
   const highlights = [
-    { value: "3+", label: "Years Experience" },
+    { value: `${yearsOfExperience}+`, label: "Years Experience" },
     { value: "10+", label: "Projects Delivered" },
     { value: "3", label: "Companies" },
   ];

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import { yearsOfExperience } from "@/data/profile";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,8 +21,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Dandi Rahmadani | Full Stack Software Engineer",
-  description:
-    "Full Stack Software Engineer with 3+ years of experience building end-to-end systems for digital banking, real estate, e-commerce, and CRM products.",
+  description: `Full Stack Software Engineer with ${yearsOfExperience}+ years of experience building end-to-end systems for digital banking, real estate, e-commerce, and CRM products.`,
   keywords: [
     "Full Stack Developer",
     "Golang",
