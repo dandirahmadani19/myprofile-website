@@ -24,7 +24,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10 md:mb-16"
+          className="grid grid-cols-2 gap-4 md:gap-6 mb-10 md:mb-16 max-w-md mx-auto"
         >
           {freelanceServices.stats.map((stat, index) => (
             <motion.div

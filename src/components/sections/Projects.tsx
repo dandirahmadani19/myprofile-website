@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 import SectionTitle from "../ui/SectionTitle";
@@ -33,11 +34,25 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
-              className="border border-[#1a1a1a] bg-gradient-to-br from-[#0a0a0a] to-[#080808] p-4 md:p-6 flex flex-col h-full cursor-pointer rounded-lg group transition-all duration-300 hover:border-[var(--accent)]"
+              className="border border-[#1a1a1a] bg-gradient-to-br from-[#0a0a0a] to-[#080808] flex flex-col h-full cursor-pointer rounded-lg group transition-all duration-300 hover:border-[var(--accent)] overflow-hidden"
             >
+              {project.image && (
+                <div className="relative w-full aspect-video border-b border-[#1a1a1a]">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} screenshot`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+
+              <div className="p-4 md:p-6 flex flex-col flex-grow">
               <div className="flex items-center justify-between mb-2 md:mb-3">
-                <span className="text-accent text-xl md:text-2xl">📁</span>
-                <span className="text-[#666] text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] bg-[#111] px-2 py-0.5 rounded">
+                {!project.image && (
+                  <span className="text-accent text-xl md:text-2xl">📁</span>
+                )}
+                <span className="text-[#666] text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] bg-[#111] px-2 py-0.5 rounded ml-auto">
                   {project.period}
                 </span>
               </div>
@@ -70,6 +85,7 @@ export default function Projects() {
               <p className="text-[#666] text-[10px] md:text-xs mt-2 md:mt-3 text-right opacity-60 group-hover:opacity-100 group-hover:text-accent transition-all">
                 Click for details →
               </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
@@ -84,6 +100,7 @@ export default function Projects() {
         techStack={selectedProject?.techStack}
         content={selectedProject?.fullDescription || ""}
         impact={selectedProject?.impact}
+        image={selectedProject?.image}
       />
     </section>
   );

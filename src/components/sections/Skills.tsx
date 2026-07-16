@@ -11,7 +11,10 @@ const skillCategories = [
   { key: "mobile", label: "Mobile" },
   { key: "database", label: "Database" },
   { key: "devops", label: "DevOps" },
+  { key: "messaging", label: "Messaging" },
+  { key: "observability", label: "Observability" },
   { key: "security", label: "Security" },
+  { key: "aiTooling", label: "AI Tooling" },
 ];
 
 export default function Skills() {

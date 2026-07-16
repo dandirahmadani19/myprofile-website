@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes, FaCheckCircle, FaArrowRight } from "react-icons/fa";
 import TechBadge from "./TechBadge";
@@ -14,6 +15,7 @@ interface DetailDialogProps {
   techStack?: string[];
   content: string;
   impact?: string;
+  image?: string;
 }
 
 export default function DetailDialog({
@@ -26,6 +28,7 @@ export default function DetailDialog({
   techStack,
   content,
   impact,
+  image,
 }: DetailDialogProps) {
   // Format content with beautiful bullet points
   const formatContent = (text: string) => {
@@ -170,6 +173,17 @@ export default function DetailDialog({
 
             {/* Content */}
             <div className="flex-1 overflow-y-auto p-4 md:p-6">
+              {image && (
+                <div className="relative w-full aspect-video mb-6 rounded-lg overflow-hidden border border-[#1a1a1a]">
+                  <Image
+                    src={image}
+                    alt={`${title} screenshot`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              )}
+
               <ul className="text-sm md:text-base leading-relaxed list-none">
                 {formatContent(content)}
               </ul>

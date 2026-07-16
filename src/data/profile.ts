@@ -1,7 +1,7 @@
 export const profile = {
   name: "Dandi Rahmadani",
   title: "Full Stack Software Engineer",
-  tagline: "I build high-performance web & mobile applications that scale. From backend architecture to polished user interfaces — I deliver complete solutions that drive business results.",
+  tagline: "I build backend services and web/mobile apps that hold up under real production load, from data model to deployment.",
   email: "dandirahmadani19@gmail.com",
   phone: "+6282260567687",
   whatsapp: "6282260567687",
@@ -9,16 +9,16 @@ export const profile = {
   linkedin: "https://linkedin.com/in/dandi-rahmadani",
   github: "https://github.com/dandirahmadani19",
   medium: "https://medium.com/@dandirahmadani19",
-  summary: `Experienced Full Stack Software Engineer with 3+ years of proven expertise delivering production-grade systems for industry leaders in banking, fintech, and enterprise software.
+  summary: `Full Stack Software Engineer with 4 years of experience delivering production systems in banking, fintech, and real estate software.
 
-I specialize in building scalable backend services with Golang and Node.js, creating responsive web applications with React/Next.js, and developing cross-platform mobile apps with Flutter and React Native.
+I build backend services in Go and Node.js, ship responsive web apps with React and Next.js, and develop cross-platform mobile apps with Flutter and React Native.
 
-My track record includes:
-• Optimizing API performance by up to 5× for high-traffic banking transactions
-• Building secure digital banking platforms processing millions of transactions
-• Delivering enterprise solutions for real estate management and e-commerce
+Recent work includes:
+• Hardening a high-volume QRIS transaction pipeline against race conditions, SQL injection, and XSS at Bank Rakyat Indonesia
+• Building the authentication and security backend for a digital banking app, including VIDA e-KYC onboarding and payload signing
+• Delivering real estate management, QC, and CRM platforms end to end
 
-I focus on writing clean, maintainable code that solves real business problems — with a strong emphasis on security, performance, and user experience.`,
+I care about writing clean, maintainable code that solves real business problems, with a strong focus on security, reliability, and correctness under real transaction load.`,
 };
 
 export const experiences = [
@@ -28,255 +28,224 @@ export const experiences = [
     role: "Full Stack Developer",
     location: "Jakarta, Indonesia",
     period: "Aug 2025 - Present",
-    techStack: ["Golang", "NestJS", "PostgreSQL", "Redis", "gRPC", "RabbitMQ", "Docker", "OpenTelemetry", "JWT"],
+    note: "IT consulting placement: Dikshatek (Aug 2025 - Apr 2026), Entrust Digital (Apr 2026 - Present). Employed by a consulting vendor, assigned to BRI as the client.",
+    techStack: ["Golang", "NestJS", "TypeScript", "TypeORM", "PostgreSQL", "Redis", "gRPC", "RabbitMQ", "Docker", "JWT"],
     achievements: [
-      "Achieved 5× faster cashback loyalty API performance in QRIS transactions",
-      "Reduced validation and bookkeeping latency by up to 80%",
-      "Increased CSV processing capacity by 100%, enabling reliable ingestion of large datasets",
-      "Built high-performance scheduler for mission-based gamification using goroutine-based streaming pipeline",
+      "Manage the QRIS cashback promo lifecycle for BRI's loyalty platform, from creation through approval and transaction validation",
+      "Hardened a high-volume transaction pipeline against race conditions, duplicate transactions, and a SQL injection/XSS finding",
+      "Built gRPC microservices for deposit accounts, TADA loyalty integration, and merchant/CIF grouping",
+      "Migrated transaction counters from database queries to Redis and rebuilt the promo deactivation scheduler",
     ],
     fullDescription: `Key Responsibilities:
 
-- QRIS Cashback Loyalty API: Owned backend optimization efforts, refactoring SQL queries, implementing Redis-based counters, and optimizing validation flows to achieve 5× faster API performance
-- Mission-Based Gamification Scheduler: Designed and developed high-performance bookkeeping service using worker pools and streaming pipelines with goroutines for efficient parallel processing
-- CSV Processing Pipeline: Eliminated throughput limitations in multi-million-row processing by implementing streaming, batching, and parallel ingestion pipelines
-- Bookkeeping Optimization: Implemented asynchronous validation and batching for log insert operations, reducing overall latency by 80%
-- Whitelist/Blacklist System: Developed promo eligibility mechanism fully integrated into transaction flows
+- QRIS Promo Cashback: Own the promo lifecycle for a NestJS microservice, including interval-based scheduling, a staged approval workflow, and a full edit audit trail
+- Transaction Pipeline Reliability: Fixed race conditions and duplicate-transaction bugs using database-level locking, bulk inserts, and asynchronous non-blocking validation and bookkeeping
+- Security: Remediated a SQL injection and XSS finding via parameterized queries and input allowlisting, and resolved SonarQube code quality issues
+- Loyalty Microservices (LMS): Built the QRIS promo management service, eligible-promo finder, deposit account management, TADA loyalty integration, and membership bookkeeping scheduler in Go/gRPC
+- Merchant Filtering: Built whitelist/blacklist filtering for QRIS promo eligibility, integrated via RabbitMQ
 
-Key Achievements:
-
-• Achieved 5× faster cashback loyalty API performance in QRIS transactions
-• Reduced validation and bookkeeping latency by up to 80%
-• Increased CSV processing capacity by 100% for reliable large dataset ingestion
-• Built scalable gamification scheduler handling high transaction volumes`,
+See the LMS and Procash project cards below for full detail.`,
   },
   {
     company: "Amani Group",
     industry: "Financial and Real Estate Company",
     role: "Software Engineer",
     location: "Jakarta, Indonesia",
-    period: "Sept 2024 - Sept 2025",
-    techStack: ["Golang", "Flutter", "PostgreSQL", "Redis", "JWT", "VIDA e-KYC", "WebSocket", "SSE", "Next.js"],
+    period: "July 2022 - Sept 2025",
+    techStack: ["Golang", "Node.js", "Express.js", "Flutter", "TypeScript", "PostgreSQL", "Redis", "JWT", "VIDA e-KYC", "OAuth 2.0", "WebSocket", "SSE", "React", "Next.js", "React Native", "Prometheus"],
     achievements: [
-      "Built secure digital banking ecosystem spanning mobile, backend, and web platforms",
-      "Integrated VIDA e-KYC for Indonesian ID OCR and selfie verification",
-      "Implemented TLS/SSL pinning, payload signing, and token security mechanisms",
-      "Built comprehensive RBAC system with fine-grained permission control",
-      "Improved registration and validation flow performance by 30-40%",
+      "Built the authentication and security backend for a digital banking app: multi-factor login, VIDA e-KYC onboarding, and ECDSA payload signing",
+      "Built an admin backoffice with maker-checker workflows, RBAC, and dynamic field-level data masking",
+      "Delivered real estate management, QC, and CRM platforms end to end, from backend APIs to React, Next.js, and React Native frontends",
+      "Automated on-site QC workflows through a mobile evaluation system with photo/video evidence and GPS watermarking",
     ],
-    fullDescription: `Key Responsibilities:
+    fullDescription: `Amani Group includes Realtegic Korporindo Investama, a related real estate company where I started in July 2022 before moving to Amani Group's digital banking products in September 2024.
 
-- Digital Banking Ecosystem: Built secure systems spanning mobile, backend, and web platforms for complete banking operations
-- Core Banking Features: Developed authentication, authorization, onboarding, user profile management, transfers, and customer data security
-- RESTful API Design: Implemented scalable banking workflows and internal operations APIs using Golang
-- e-KYC Integration: Integrated VIDA for Indonesian ID OCR and selfie verification ensuring regulatory compliance
-- Security Implementation: Built TLS/SSL pinning, payload signing, and token security mechanisms to protect customer data
-- RBAC System: Developed comprehensive role-based access control with fine-grained permission management
-- Back-Office Systems: Created internal admin systems using Next.js + TypeScript for operational workflows
-- Real-Time Features: Integrated WebSockets and SSE for auto-logout, single-device login, and live notifications
-- Security Audits: Participated in penetration testing and ISO-aligned hardening
+Key Responsibilities:
 
-Key Achievements:
+- Digital Banking (Amani): Built authentication (password, PIN, biometric), multi-step registration, VIDA e-KYC integration, and a security layer (ECDSA payload signing, RSA-encrypted JWT, single-device session enforcement)
+- Backoffice (Amani): Built admin authentication, role management, RBAC middleware, dynamic data masking, and a maker-checker approval engine shared across customer management, KYC, and admin operations
+- Real Estate & Construction (Realtegic): Built job list management, QC criteria workflows, progress tracking, and RAB (budget) management for REM; unit evaluation and criteria-checking with photo/video watermarking for Mobile QC
+- CRM (Realtegic): Built pricelist management, promo management, and a sales/KPR analytics dashboard
+- E-Commerce (Realtegic): Built authentication, end-to-end order flow, Xendit payment integration, and PO PDF generation for a contractor material marketplace
 
-• Delivered secure onboarding and e-KYC modules that passed external penetration testing (BinaryWorks)
-• Improved registration and validation flow performance by 30–40% through concurrency optimization
-• Enhanced security with flexible RBAC and API-level permission enforcement`,
-  },
-  {
-    company: "Realtegic Korporindo Investama",
-    industry: "Real Estate Company",
-    role: "Software Engineer",
-    location: "Jakarta, Indonesia",
-    period: "July 2022 - Aug 2024",
-    techStack: ["Golang", "Node.js", "Express.js", "PostgreSQL", "JWT", "React", "Next.js", "React Native"],
-    achievements: [
-      "Developed enterprise-grade platforms for real estate management, construction monitoring, CRM",
-      "Built scalable frontend applications using React, Next.js, and React Native",
-      "Optimized dashboard and reporting features, significantly improving response times",
-      "Developed QC mobile applications to digitize on-site inspections and reporting",
-    ],
-    fullDescription: `Key Responsibilities:
-
-- Enterprise Platforms: Developed and maintained systems for real estate management, construction monitoring, CRM, and e-commerce
-- Frontend Development: Built scalable applications using React, Next.js, and React Native for operational workflows
-- Backend Services: Designed and implemented APIs using Node.js, Express.js, and Golang
-- Security Implementation: Created secure JWT-based authentication for financial and property-related systems
-- Performance Optimization: Refactored SQL queries and introduced caching strategies for dashboards and reports
-- Mobile QC App: Developed Quality Control applications to digitize on-site inspections and reporting
-- Cross-Functional Collaboration: Worked with QA, UI/UX, DevOps, and business stakeholders
-
-Key Achievements:
-
-• Automated on-site QC workflows through mobile evaluation system, reducing reporting time
-• Increased construction progress tracking accuracy with optimized job-list and inspection modules
-• Improved sales efficiency with centralized CRM for pricelists, promotions, and payments`,
+See the project cards below for full detail per product.`,
   },
 ];
 
 export const projects = [
   {
     name: "LMS (Loyalty Management System)",
-    period: "Sep 2025 - Present",
-    description: "High-performance Cashback Loyalty API and Mission-Based Gamification platform for QRIS transactions at BRI.",
-    techStack: ["Golang", "NestJS", "PostgreSQL", "MySQL", "gRPC", "RabbitMQ", "Docker", "OpenTelemetry"],
-    impact: "Achieved 5× faster API performance and 80% latency reduction in high-volume banking transactions.",
-    fullDescription: `Built the core Cashback Loyalty API powering QRIS transactions for one of Indonesia's largest banks, processing millions of transactions daily.
+    period: "Aug 2025 - Present",
+    description: "QRIS cashback loyalty and mission-based gamification platform at BRI, built as Go/gRPC microservices.",
+    techStack: ["Golang", "gRPC", "grpc-gateway", "protobuf", "PostgreSQL", "Redis", "MinIO", "RabbitMQ"],
+    impact: "Powers promo management, eligibility matching, and bookkeeping scheduling for BRI's QRIS cashback loyalty platform.",
+    image: undefined as string | undefined,
+    fullDescription: `Built and maintain several Go/gRPC microservices behind BRI's QRIS cashback loyalty platform.
 
 Key Features Developed:
 
-- Whitelist/Blacklist Engine: Smart promo eligibility system integrated into transaction flows for accurate cashback distribution
-- Cashback Loyalty API: High-performance API with 5× faster response times through Redis caching and SQL optimization
-- Mission-Based Gamification: Real-time progress tracking reward system to boost user engagement
-- High-Performance Scheduler: Goroutine-based streaming pipeline with worker pools for parallel bookkeeping
-- Referral Service APIs: Secure backend communication for BRIMO's referral program
-- CSV Processing Pipeline: Streaming and batching system for multi-million-row files with 100% faster processing
+- QRIS Promo Management: CRUD with draft/publish flow, banner image upload via MinIO, Maker-Checker-Signer approval with self-approval prevention, and full edit history tracking
+- Eligible Promo Finder: gRPC service that matches incoming QRIS transactions to active promos by cross-referencing CIF group and merchant group data across microservices
+- Transaction Ingestion Pipeline: Concurrent worker pool to process Tito and regular transaction flows, with a cron scheduler for core-banking bookkeeping
+- Deposit Account Management: Core-banking inquiry-based account validation with a Maker-Checker-Signer approval workflow
+- TADA Loyalty Integration: Event processing, member management, mission tracking, and notification routing
+- Merchant & CIF Grouping: Branch-level authorization, MID CRUD with change requests, and CSV bulk upload with dry-run validation
 
-Key Achievements:
+Impact:
 
-• Achieved 5× faster cashback loyalty API performance in QRIS transactions
-• Reduced validation and bookkeeping latency by up to 80%
-• Built scalable Mission-Based Gamification scheduler for high transaction volumes
-• Increased CSV processing capacity by 100% for reliable large dataset ingestion`,
+• Powers the core promo management and transaction bookkeeping for BRI's QRIS cashback loyalty platform`,
+  },
+  {
+    name: "Procash (QRIS Promo Cashback)",
+    period: "Aug 2025 - Present",
+    description: "The NestJS microservice and gateway behind QRIS promo cashback transactions, hardened for reliability and security under real transaction volume.",
+    techStack: ["NestJS", "TypeScript", "TypeORM", "PostgreSQL", "Redis", "RabbitMQ"],
+    impact: "Hardened the QRIS promo cashback transaction pipeline against race conditions, duplicate transactions, and a SQL injection/XSS finding.",
+    image: undefined as string | undefined,
+    fullDescription: `Own the QRIS promo cashback lifecycle and transaction pipeline, spanning the qris-microservice and its gateway.
+
+Key Features Developed:
+
+- Promo Lifecycle: Interval-based scheduling (fixed day, date range, or manual), a staged approval workflow that merges pending edits on approval, and a full edit audit trail
+- Transaction Validation: Channel allow-listing, interval-date enforcement, and Redis-backed per-user daily limit counters with dedicated error codes
+- QRIS TITO: Developed Tap In Tap Out as a new transaction type end to end across the microservice and gateway
+- Merchant Filtering: Whitelist/blacklist filtering for promo eligibility, integrated via RabbitMQ with the selected-user service
+- Reliability: Fixed race conditions and duplicate-transaction bugs using database-level locking, bulk inserts, and asynchronous non-blocking validation and bookkeeping with retry handling
+- Security: Fixed a SQL injection and XSS finding via parameterized queries and input allowlisting, and resolved SonarQube code quality issues
+- CSV Uploads: Made large merchant-list uploads non-blocking by moving processing to a background process
+
+Impact:
+
+• Hardened a high-volume QRIS promo transaction pipeline for reliability and security`,
   },
   {
     name: "Mobile Banking",
     period: "Aug 2024 - Mar 2025",
-    description: "Developed authentication, registration, and profile features in Flutter to support customer onboarding.",
-    techStack: ["Flutter", "Golang", "PostgreSQL", "JWT", "VIDA e-KYC", "SSL/TLS"],
-    impact: "Supported the launch of the bank's first digital deposit product.",
+    description: "Authentication, registration, and profile features in Flutter for a digital banking app's customer onboarding.",
+    techStack: ["Flutter", "Golang", "PostgreSQL", "Redis", "JWT", "VIDA e-KYC", "OAuth 2.0"],
+    impact: "Built the full authentication and security layer for a digital banking app's customer onboarding.",
+    image: undefined as string | undefined,
     fullDescription: `Key Features Developed:
 
-- Authentication System: Complete login and registration flow with secure session management
-- Customer Onboarding: User-friendly registration with step-by-step verification process
-- Profile Management: Customer profile features with data validation and updates
-- Transfer Feature: Secure money transfer functionality with confirmation flows
-- e-KYC Integration: VIDA integration for Indonesian ID OCR and selfie verification
-- Security Layer: JWT with RSA/AES encryption and SSL/TLS validation
+- Authentication System: Password, PIN, and biometric login; device management with IMEI tracking for single-device enforcement; OTP-based account recovery
+- Customer Onboarding: Multi-step registration (personal, job, finance info) with duplicate prevention and OTP verification via Redis TTL
+- e-KYC Integration: VIDA API integration for ID document OCR and liveness selfie verification, with DTTO and VIDA calls run in parallel to reduce registration latency
+- Security Layer: ECDSA payload signature validation, RSA-encrypted JWT with HTTP-only cookies, single-device session enforcement, OTP/PIN middleware, and API activity logging
+- Core Banking Integration: Contributed to inter-bank/intra-bank transfer flows and IBA core banking HTTP client integration (RSA-PSS signing, HMAC-SHA512)
 
-Key Achievements:
+Impact:
 
-• Improved registration performance through concurrency optimization for DTTO and VIDA e-KYC
-• Built secure login flows using JWT with RSA/AES encryption
-• Implemented payload signing to protect sensitive customer data
-• Supported the launch of the bank's first digital deposit product`,
+• Built the complete authentication and security backend for a digital banking app's customer onboarding`,
   },
   {
     name: "Backoffice For Mobile Banking",
     period: "July 2024 - Mar 2025",
-    description: "Built customer management, user administration, and role-based authorization features.",
-    techStack: ["Next.js", "Golang", "PostgreSQL", "JWT"],
-    impact: "Improved internal operational efficiency and access control compliance.",
+    description: "Admin authentication, customer management, and role-based authorization for a digital banking backoffice.",
+    techStack: ["Next.js", "Golang", "PostgreSQL", "WebSocket", "JWT"],
+    impact: "Built RBAC authorization and a maker-checker workflow engine shared across customer management, KYC, and admin operations.",
+    image: undefined as string | undefined,
     fullDescription: `Key Features Developed:
 
-- Customer Management: Complete customer data handling with search, filter, and detail views
-- User Administration: Admin user management with role assignment and access control
-- RBAC System: Flexible role-based access control with API-level permission enforcement
-- Data Masking: Dynamic data masking based on user access levels for sensitive information
-- Maker-Checker Workflow: Approval system with real-time notifications for operational accuracy
-- Secure Sessions: JWT authentication with comprehensive permission checks
+- Admin Authentication: Login, logout, forgot/reset password with OTP, refresh tokens, and JWT middleware
+- Role Management: CRUD with a draft/submit flow and a Maker-Checker approval workflow for creating and editing roles
+- RBAC System: API-level permission enforcement at the resource-action level, plus dynamic field-level data masking based on user role
+- Maker-Checker Engine: Shared approval workflow engine supporting multiple entity types (KYC, data edits, resets, block/unblock) with full audit timestamps
+- Real-Time Features: WebSocket notification broadcasting and a role-based dynamic sidebar
 
-Key Achievements:
+Impact:
 
-• Built flexible RBAC system with fine-grained permission control
-• Implemented dynamic data masking for sensitive customer information
-• Developed maker-checker workflow ensuring operational accuracy
-• Improved internal efficiency and access control compliance`,
+• Built the RBAC and maker-checker approval system used across the admin backoffice`,
   },
   {
     name: "E-Commerce Material Kontraktor",
     period: "Feb 2024 - May 2024",
-    description: "Implemented JWT-based authentication, order management, and secure payments with Xendit.",
+    description: "Authentication, order management, and Xendit-based payments for a contractor material marketplace.",
     techStack: ["Next.js", "Golang", "PostgreSQL", "JWT", "Xendit"],
-    impact: "Streamlined material procurement for contractors through a centralized digital platform.",
+    impact: "Built the end-to-end order flow and payment integration for a contractor material marketplace.",
+    image: undefined as string | undefined,
     fullDescription: `Key Features Developed:
 
-- Authentication System: JWT-based secure user sessions with role management
-- Order Management: Complete checkout flow with tracking and order history
-- Payment Integration: Secure payments with Xendit gateway integration
-- Data Integration: Master Admin and REM data sources for accurate workflows
-- UI Optimization: Smooth purchasing flows with responsive design
+- Authentication System: Registration with email verification, login, and password reset using JWT and bcrypt
+- Order Flow: Shopping cart, checkout with stock validation, order history, and manual/scheduled auto-completion via cron
+- Payment Integration: Xendit invoice-based payment creation and order cancellation with expiry handling
+- PO Generation: Purchase order PDF generation via wkhtmltopdf/Chromium with upload to Google Cloud Storage
+- Notifications: Real-time SSE delivery and an in-app notification center
 
-Key Achievements:
+Impact:
 
-• Implemented secure JWT-based authentication for user sessions
-• Developed complete order management with checkout and tracking
-• Integrated Xendit for secure payment processing
-• Streamlined material procurement through centralized digital platform`,
+• Delivered the end-to-end order and payment flow for a centralized material procurement platform`,
   },
   {
     name: "REM (Real Estate Management)",
     period: "Aug 2023 - Jan 2024",
-    description: "Developed modules for project tracking, job lists, and quality-control workflows.",
-    techStack: ["Next.js", "Node.js", "Express.js", "TypeScript", "PostgreSQL", "JWT"],
-    impact: "Improved visibility and coordination across real estate development operations.",
+    description: "Project tracking, job lists, and quality-control workflows for real estate development operations.",
+    techStack: ["Next.js", "Node.js", "Express.js", "TypeScript", "PostgreSQL", "Google Docs API"],
+    impact: "Built project tracking, QC workflows, and budget management used across real estate development operations.",
+    image: undefined as string | undefined,
     fullDescription: `Key Features Developed:
 
-- Project Tracking: Comprehensive project management with status tracking and updates
-- Job List Management: Task assignment and tracking for construction teams
-- Quality Control Workflows: QC checklist and inspection result management
-- REST APIs: Backend APIs supporting consistent construction progress updates
-- Data Validation: Mechanisms ensuring data accuracy across project stages
+- Job List Management: CRUD for construction jobs linked to construction types and RAB output objects, integrated with progress tracking
+- QC Criteria Workflow: Create and manage quality control criteria per construction object type, with draft-to-publish transitions
+- Progress Tracking: Computed completion rates per output object and construction type using SQL CTEs
+- RAB (Budget) Management: Structured JSON storage for detailed budget items
+- Procurement: Tender and appointment flows with Google Docs API integration for automated RFP document generation
 
-Key Achievements:
+Impact:
 
-• Developed comprehensive project tracking modules for real estate operations
-• Built job list management for construction team coordination
-• Implemented quality control workflows for inspection processes
-• Improved visibility and coordination across development operations`,
+• Improved visibility and coordination across real estate development operations`,
   },
   {
     name: "Mobile QC (Quality Control)",
     period: "Apr 2023 - Aug 2023",
-    description: "Built unit evaluation module for on-site construction quality assessments.",
-    techStack: ["React Native", "Node.js", "GraphQL", "PostgreSQL", "JWT"],
-    impact: "Reduced manual reporting time and improved accuracy of field inspections.",
+    description: "Unit evaluation module for on-site construction quality assessments, built for field inspectors.",
+    techStack: ["React Native", "Node.js", "Express.js", "PostgreSQL", "FFmpeg"],
+    impact: "Built the unit evaluation and evidence-capture workflow used by field inspectors on-site.",
+    image: undefined as string | undefined,
     fullDescription: `Key Features Developed:
 
-- Unit Evaluation Module: Comprehensive quality assessment forms for construction units
-- Mobile Interface: Responsive design suitable for field inspectors on-site
-- Real-Time Sync: Backend API integration for instant QC data submission
-- Photo Documentation: Image capture and upload for inspection evidence
-- Offline Support: Data caching for areas with limited connectivity
+- Unit Evaluation: Auto-generated evaluation versions with criteria, list views with pagination/filtering, and cascading soft delete
+- Evidence Capture: Photo and video uploads watermarked with GPS coordinates, timestamp, and username (Jimp for images, FFmpeg for video)
+- Progress Calculation: Auto-progress engine computing passed/failed/unstarted rates per criteria using a weight normalization formula
+- Version Management: Draft/Published transitions per evaluation using PostgreSQL window functions
+- Reporting: Excel progress report export with the full job and criteria hierarchy
 
-Key Achievements:
+Note: mobile-backend communication originally used GraphQL, later revamped to Express REST.
 
-• Built responsive mobile interface for field inspectors
-• Integrated real-time QC data submission with backend APIs
-• Reduced manual reporting time significantly
-• Improved accuracy of field inspections through digital workflows`,
+Impact:
+
+• Digitized on-site QC evaluation and evidence capture for field inspectors`,
   },
   {
     name: "CRM (Customer Relationship Management)",
     period: "Nov 2022 - Mar 2023",
-    description: "Built modules for price list, promo display, and payment features.",
-    techStack: ["React.js", "Node.js", "Express.js", "PocketBase", "PostgreSQL", "JWT"],
-    impact: "Centralized customer, pricing, and payment workflows to improve sales efficiency.",
+    description: "Pricelist, promo, and payment management for real estate sales teams.",
+    techStack: ["React.js", "Node.js", "Express.js", "PocketBase", "PostgreSQL", "Xendit"],
+    impact: "Centralized pricelist, promo, and payment workflows for real estate sales teams.",
+    image: undefined as string | undefined,
     fullDescription: `Key Features Developed:
 
-- Price List Management: Dynamic pricing display with category filtering
-- Promo Display: Promotional campaigns and discount management for sales teams
-- Payment Features: Unit purchase and down-payment transaction processing
-- Customer Management: Centralized customer data with interaction history
-- Sales Dashboard: Overview of sales metrics and performance tracking
+- Pricelist Management: Form-based configuration of price lists per property unit type
+- Promo Management: Create and edit promotional offers linked to real estate projects
+- Analytics: Unit and sales performance dashboard, sales leaderboard, and KPR mortgage submission reports
+- Payments: DP payments, installment tracking, and Xendit payment gateway integration
 
-Key Achievements:
+Impact:
 
-• Built comprehensive price list and promo management for sales teams
-• Developed payment features for unit purchases and down-payments
-• Centralized customer data improving sales team efficiency
-• Streamlined pricing and payment workflows`,
+• Centralized pricelist, promo, and payment workflows for the sales team`,
   },
 ];
 
 export const skills = {
-  backend: ["Golang (Gin, Mux)", "Node.js (Express, NestJS)", "gRPC", "RESTful APIs", "GraphQL", "Microservices", "Unit Testing (Go test, Jest)"],
+  backend: ["Golang (Gin)", "Node.js (Express, NestJS)", "gRPC", "grpc-gateway", "RESTful APIs", "Microservices"],
   frontend: ["React.js", "Next.js", "TypeScript", "HTML/CSS"],
   mobile: ["Flutter (Dart)", "React Native"],
-  database: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
-  devops: ["Docker", "Git", "CI/CD"],
-  messaging: ["RabbitMQ", "Webhooks", "API Integration"],
-  observability: ["OpenTelemetry", "Logging", "Tracing"],
-  security: ["JWT Auth", "OAuth", "Payload Signing", "RBAC Authorization", "TLS/SSL", "e-KYC Integration"],
+  database: ["PostgreSQL", "Redis", "MinIO", "MySQL", "TypeORM"],
+  devops: ["Docker", "Git", "Google Cloud Storage"],
+  messaging: ["RabbitMQ"],
+  observability: ["Prometheus", "Logging"],
+  security: ["JWT Auth", "OAuth 2.0", "ECDSA", "RSA-PSS", "HMAC-SHA512", "bcrypt", "RBAC Authorization", "Payload Signing", "e-KYC Integration"],
+  aiTooling: ["Claude Code (agentic CLI for AI-assisted development workflows)"],
 };
 
 export const education = [
@@ -299,7 +268,7 @@ export const certifications = [
 export const freelanceServices = {
   headline: "Let's Build Something Great Together",
   subheadline: "Available for Freelance Projects",
-  description: "I partner with startups, agencies, and businesses to build software that scales. Whether you need a complete web application, mobile app, or high-performance backend system — I deliver production-ready solutions on time and on budget.",
+  description: "I partner with startups, agencies, and businesses to build software that scales. Whether you need a complete web application, mobile app, or high-performance backend system, I deliver production-ready solutions on time and on budget.",
   services: [
     {
       title: "Backend Development",
@@ -323,9 +292,7 @@ export const freelanceServices = {
     },
   ],
   stats: [
-    { value: "3+", label: "Years Experience" },
-    { value: "10+", label: "Projects Delivered" },
+    { value: "4+", label: "Years Experience" },
     { value: "3", label: "Companies Served" },
-    { value: "100%", label: "Client Satisfaction" },
   ],
 };
