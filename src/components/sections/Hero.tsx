@@ -1,12 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import Image from "next/image";
 import FallingParticles from "../animations/FallingParticles";
 import Typewriter from "../ui/Typewriter";
 import { profile } from "@/data/profile";
+import { getTimeOfDayMood } from "@/lib/getTimeOfDayMood";
+import { usePointerVelocity } from "@/hooks/usePointerVelocity";
+import { useDeviceCapability } from "@/hooks/useDeviceCapability";
 import {
   FaGithub,
   FaLinkedin,
@@ -15,8 +19,17 @@ import {
   FaWhatsapp,
 } from "react-icons/fa";
 
+const HeroScene = dynamic(() => import("../three/HeroScene"), { ssr: false });
+
 export default function Hero() {
   const [nameComplete, setNameComplete] = useState(false);
+  const [greeting, setGreeting] = useState("Hi, my name is");
+  const deviceTier = useDeviceCapability();
+  const { state: activityState } = usePointerVelocity();
+
+  useEffect(() => {
+    setGreeting(getTimeOfDayMood(new Date().getHours()).greeting);
+  }, []);
 
   const whatsappLink = `https://wa.me/${profile.whatsapp}?text=Hi%20Dandi,%20I%20found%20your%20profile%20and%20would%20like%20to%20connect!`;
 
@@ -35,7 +48,7 @@ export default function Hero() {
             className="text-accent font-[family-name:var(--font-jetbrains-mono)] text-xs md:text-sm mb-3 md:mb-4"
             style={{ color: "var(--accent)" }}
           >
-            Hi, my name is
+            {greeting}
           </motion.p>
 
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-[family-name:var(--font-space-grotesk)] mb-3 md:mb-4">
@@ -160,6 +173,9 @@ export default function Hero() {
           <div className="relative w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96">
             {/* Modern gradient background */}
             <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/20 via-accent/5 to-transparent" />
+
+            {/* 3D wireframe HUD frame, wrapping the photo */}
+            {deviceTier === "full" && <HeroScene idleFlourish={activityState === "asleep"} />}
 
             {/* Orange glow effect */}
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 md:w-48 lg:w-64 h-32 md:h-48 lg:h-64 bg-accent opacity-20 blur-3xl rounded-full" />

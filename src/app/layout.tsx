@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import ThemeSwitcher from "@/components/ThemeSwitcher";
+import SoundToggle from "@/components/ui/SoundToggle";
+import CursorMascot from "@/components/interactions/CursorMascot";
+import EasterEggTerminal from "@/components/interactions/EasterEggTerminal";
 import { yearsOfExperience } from "@/data/profile";
 
 const inter = Inter({
@@ -51,6 +54,9 @@ export default function RootLayout({
       >
         {children}
         <ThemeSwitcher />
+        <SoundToggle />
+        <CursorMascot />
+        <EasterEggTerminal />
       </body>
     </html>
   );

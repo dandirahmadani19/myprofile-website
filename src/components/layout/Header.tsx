@@ -1,8 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+
+const LOGO_CLICK_THRESHOLD = 5;
+const LOGO_CLICK_WINDOW_MS = 1500;
 
 const navItems = [
   { name: "Services", href: "#services" },
@@ -15,6 +18,19 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const logoClicks = useRef<number[]>([]);
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    const now = Date.now();
+    logoClicks.current = [...logoClicks.current, now].filter(
+      (t) => now - t < LOGO_CLICK_WINDOW_MS,
+    );
+    if (logoClicks.current.length >= LOGO_CLICK_THRESHOLD) {
+      e.preventDefault();
+      logoClicks.current = [];
+      window.dispatchEvent(new CustomEvent("easter-egg-trigger"));
+    }
+  };
 
   return (
     <motion.header
@@ -142,6 +158,7 @@ export default function Header() {
       <nav className="relative max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
         <Link
           href="/"
+          onClick={handleLogoClick}
           className="text-xl md:text-2xl font-bold font-[family-name:var(--font-space-grotesk)] text-white hover:text-accent transition-colors relative group"
         >
           <span className="relative z-10">DR</span>

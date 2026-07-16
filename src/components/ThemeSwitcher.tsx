@@ -38,12 +38,14 @@ export default function ThemeSwitcher() {
     const savedColor = localStorage.getItem("accent-color") || colors[0].value;
     setActiveColor(savedColor);
     document.documentElement.style.setProperty("--accent", savedColor);
+    window.dispatchEvent(new CustomEvent("accent-color-change", { detail: savedColor }));
   }, []);
 
   const handleColorChange = (color: string) => {
     setActiveColor(color);
     document.documentElement.style.setProperty("--accent", color);
     localStorage.setItem("accent-color", color);
+    window.dispatchEvent(new CustomEvent("accent-color-change", { detail: color }));
   };
 
   return (

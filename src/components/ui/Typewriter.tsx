@@ -9,6 +9,7 @@ interface TypewriterProps {
   speed?: number;
   className?: string;
   onComplete?: () => void;
+  onCharacter?: () => void;
 }
 
 export default function Typewriter({
@@ -17,6 +18,7 @@ export default function Typewriter({
   speed = 50,
   className = "",
   onComplete,
+  onCharacter,
 }: TypewriterProps) {
   const [displayText, setDisplayText] = useState("");
   const [isComplete, setIsComplete] = useState(false);
@@ -36,6 +38,7 @@ export default function Typewriter({
     if (displayText.length < text.length) {
       const timeout = setTimeout(() => {
         setDisplayText(text.slice(0, displayText.length + 1));
+        onCharacter?.();
       }, speed);
 
       return () => clearTimeout(timeout);
@@ -43,7 +46,7 @@ export default function Typewriter({
       setIsComplete(true);
       onComplete?.();
     }
-  }, [displayText, text, speed, started, onComplete]);
+  }, [displayText, text, speed, started, onComplete, onCharacter]);
 
   return (
     <span className={className}>
