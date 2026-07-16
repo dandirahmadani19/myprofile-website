@@ -81,6 +81,7 @@ export const projects = [
     techStack: ["Golang", "gRPC", "grpc-gateway", "protobuf", "PostgreSQL", "Redis", "MinIO", "RabbitMQ"],
     impact: "Powers promo management, eligibility matching, and bookkeeping scheduling for BRI's QRIS cashback loyalty platform.",
     images: ["/images/projects/default.webp"] as string[],
+    purpose: `LMS is a new project that revamps Procash. Instead of patching the existing system module by module, LMS rebuilds the same loyalty and cashback functionality as a set of Go/gRPC microservices, giving BRI a cleaner and more maintainable architecture going forward. It covers the same core ideas as Procash - promo management, eligibility checking against merchant and transaction data, and cashback bookkeeping - but structured so each piece (promo management, deposit accounts, merchant/CIF grouping, TADA loyalty integration) is its own service instead of one large application. This project is still in progress, alongside keeping Procash running for current production traffic.`,
     fullDescription: `Built and maintain several Go/gRPC microservices behind BRI's QRIS cashback loyalty platform.
 
 Key Features Developed:
@@ -103,6 +104,7 @@ Impact:
     techStack: ["NestJS", "TypeScript", "TypeORM", "PostgreSQL", "Redis", "RabbitMQ"],
     impact: "Hardened the QRIS promo cashback transaction pipeline against race conditions, duplicate transactions, and a SQL injection/XSS finding.",
     images: ["/images/projects/default.webp"] as string[],
+    purpose: `Procash is BRI's existing, live QRIS promo platform. It already runs in production and hosts several modules, including QRIS promo cashback and voucher management, processing real transaction traffic and real money. My work here was mostly reliability and security work on this running system: fixing race conditions that could cause duplicate rewards, adding database-level locks so concurrent transactions don't corrupt each other, and closing a SQL injection and XSS vulnerability that was found during a security review. Because Procash is already in production, changes here have to be careful, since any bug affects real customers and real transactions immediately.`,
     fullDescription: `Own the QRIS promo cashback lifecycle and transaction pipeline, spanning the qris-microservice and its gateway.
 
 Key Features Developed:
@@ -126,6 +128,7 @@ Impact:
     techStack: ["Flutter", "Golang", "PostgreSQL", "Redis", "JWT", "VIDA e-KYC", "OAuth 2.0"],
     impact: "Built the full authentication and security layer for a digital banking app's customer onboarding.",
     images: ["/images/projects/mobile-banking-1.webp", "/images/projects/mobile-banking-2.webp"] as string[],
+    purpose: `This is the customer-facing mobile app for Amani's digital bank, built for customers who want a fully online banking experience without visiting a branch. My focus was the onboarding journey: a new customer downloads the app, registers with their personal and job information, and goes through an e-KYC process where they upload their ID card and take a liveness selfie. The app sends this data to VIDA, a third-party identity verification provider, which checks the document and confirms the person is real and matches their ID. After onboarding, the app also handles day-to-day account access: password, PIN, and biometric login, and a security layer that protects the customer's session on their device. This part of the app is critical because it is the first impression for every new customer and it decides whether they can actually open an account.`,
     fullDescription: `Key Features Developed:
 
 - Authentication System: Password, PIN, and biometric login; device management with IMEI tracking for single-device enforcement; OTP-based account recovery
@@ -145,6 +148,7 @@ Impact:
     techStack: ["Next.js", "Golang", "PostgreSQL", "WebSocket", "JWT"],
     impact: "Built RBAC authorization and a maker-checker workflow engine shared across customer management, KYC, and admin operations.",
     images: ["/images/projects/backoffice.webp"] as string[],
+    purpose: `While customers use the mobile app, Amani's internal teams (operations, compliance, and admin staff) use this backoffice system to run the bank behind the scenes. It is a web admin panel where staff review and approve customer KYC submissions, manage customer accounts, and control who inside the company can access what, through a role-based permission system. One important part is the maker-checker workflow: for sensitive actions like approving a KYC or changing a customer's data, one staff member proposes the change (the "maker") and a different staff member has to review and approve it (the "checker") before it takes effect. This exists to prevent mistakes and fraud, since no single person can make a sensitive change alone. I also added dynamic data masking, so staff only see the parts of customer data that their role is allowed to see.`,
     fullDescription: `Key Features Developed:
 
 - Admin Authentication: Login, logout, forgot/reset password with OTP, refresh tokens, and JWT middleware
@@ -164,6 +168,7 @@ Impact:
     techStack: ["Next.js", "Golang", "PostgreSQL", "JWT", "Xendit"],
     impact: "Built the end-to-end order flow and payment integration for a contractor material marketplace.",
     images: ["/images/projects/ecommerce-kontraktor.webp"] as string[],
+    purpose: `This is a B2B online marketplace where contractors working on Realtegic's property developments can order construction materials, instead of placing orders manually by phone or in person. A contractor logs in, browses a catalog of materials, adds items to a cart, and checks out. Payment goes through Xendit, an Indonesian payment gateway, so contractors can pay online instead of using cash or bank transfer with manual confirmation. Once an order is placed, the system automatically generates a purchase order (PO) document as a PDF, which used to be prepared by hand. The goal of this project was to make material procurement faster and easier to track for both the contractors and the internal procurement team.`,
     fullDescription: `Key Features Developed:
 
 - Authentication System: Registration with email verification, login, and password reset using JWT and bcrypt
@@ -183,6 +188,7 @@ Impact:
     techStack: ["Next.js", "Node.js", "Express.js", "TypeScript", "PostgreSQL", "Google Docs API"],
     impact: "Built project tracking, QC workflows, and budget management used across real estate development operations.",
     images: ["/images/projects/default.webp"] as string[],
+    purpose: `REM is an internal operations system used by Realtegic's project management and site teams to run real estate development projects. Before this system, teams tracked construction jobs, quality checks, and budgets across spreadsheets and manual reports, which made it hard to see the real status of a project. REM centralizes this: it lets teams create and manage construction jobs linked to specific building types, run a quality-control workflow with clear criteria for each stage, and track progress automatically based on completed work. It also manages the RAB (project budget), storing detailed cost items, and supports the procurement process by generating tender and RFP documents through the Google Docs API. With several projects running at the same time, this system gives management one place to see how each one is progressing.`,
     fullDescription: `Key Features Developed:
 
 - Job List Management: CRUD for construction jobs linked to construction types and RAB output objects, integrated with progress tracking
@@ -202,6 +208,7 @@ Impact:
     techStack: ["React Native", "Node.js", "Express.js", "PostgreSQL", "FFmpeg"],
     impact: "Built the unit evaluation and evidence-capture workflow used by field inspectors on-site.",
     images: ["/images/projects/qc-app-1.webp", "/images/projects/qc-app-2.webp"] as string[],
+    purpose: `Before a housing unit can be handed over to a buyer, someone has to check that it was actually built correctly. This mobile app is the tool that field inspectors use to do that check on-site. Instead of using a paper checklist, the inspector opens the app, selects the unit, and goes through a list of criteria for that unit type (walls, plumbing, electrical, and so on). For each criterion, the inspector marks it as passed or failed and can attach a photo or video as evidence. Every photo and video is automatically watermarked with the GPS location, timestamp, and the inspector's username, so there's no doubt about when and where the evidence was captured. The app also tracks the evaluation's progress and version history, so managers can see how a unit's inspection status has changed over time, and can export the results to Excel for reporting.`,
     fullDescription: `Key Features Developed:
 
 - Unit Evaluation: Auto-generated evaluation versions with criteria, list views with pagination/filtering, and cascading soft delete
@@ -223,6 +230,7 @@ Impact:
     techStack: ["React.js", "Node.js", "Express.js", "PocketBase", "PostgreSQL", "Xendit"],
     impact: "Centralized pricelist, promo, and payment workflows for real estate sales teams.",
     images: ["/images/projects/crm.webp"] as string[],
+    purpose: `This CRM is used by Realtegic's sales team to manage the sales process for real estate projects. Each project can have its own pricelist per unit type, and the sales team can create and manage promotional offers linked to specific projects. When a customer decides to buy a unit, the CRM tracks the payment process, including down payments, installment plans, and KPR (mortgage) submissions, and it integrates with Xendit for payment processing. On top of the day-to-day sales work, the system also gives management an analytics dashboard, showing unit sales performance and a sales leaderboard across the team. Before this CRM existed, this kind of tracking was spread across spreadsheets and individual sales reps, making it hard to get a clear, real-time picture of how each project was selling.`,
     fullDescription: `Key Features Developed:
 
 - Pricelist Management: Form-based configuration of price lists per property unit type

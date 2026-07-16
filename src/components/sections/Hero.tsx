@@ -141,7 +141,7 @@ export default function Hero() {
               Contact Me
             </Link>
             <Link
-              href="https://drive.google.com/uc?id=1vFE7MivDwLzETkLaDlVHGLTaqUoQQDah"
+              href="https://drive.google.com/uc?id=1DGJ4yLOmc7nwIo3JZHI8Pa-lyp1YxPLb"
               target="_blank"
               className="w-full sm:w-auto text-center px-5 md:px-6 py-2.5 md:py-3 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium text-sm md:text-base hover:bg-white/20 transition-all duration-300"
             >

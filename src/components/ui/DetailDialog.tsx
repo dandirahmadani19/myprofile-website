@@ -17,6 +17,7 @@ interface DetailDialogProps {
   content: string;
   impact?: string;
   images?: string[];
+  purpose?: string;
 }
 
 export default function DetailDialog({
@@ -30,6 +31,7 @@ export default function DetailDialog({
   content,
   impact,
   images = [],
+  purpose,
 }: DetailDialogProps) {
   const [activeImage, setActiveImage] = useState(0);
 
@@ -240,6 +242,20 @@ export default function DetailDialog({
                     </div>
                   )}
                 </div>
+              )}
+
+              {purpose && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 }}
+                  className="mb-6 p-4 bg-[#111] border border-[#1a1a1a] rounded-lg"
+                >
+                  <p className="text-white font-bold text-sm mb-2 flex items-center gap-2">
+                    <span>🎯</span> Purpose & Usage
+                  </p>
+                  <p className="text-[#bbb] text-sm leading-relaxed">{purpose}</p>
+                </motion.div>
               )}
 
               <ul className="text-sm md:text-base leading-relaxed list-none">

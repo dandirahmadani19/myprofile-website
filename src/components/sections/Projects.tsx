@@ -106,6 +106,7 @@ export default function Projects() {
         content={selectedProject?.fullDescription || ""}
         impact={selectedProject?.impact}
         images={selectedProject?.images}
+        purpose={selectedProject?.purpose}
       />
     </section>
   );
