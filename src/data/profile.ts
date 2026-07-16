@@ -80,7 +80,7 @@ export const projects = [
     description: "QRIS cashback loyalty and mission-based gamification platform at BRI, built as Go/gRPC microservices.",
     techStack: ["Golang", "gRPC", "grpc-gateway", "protobuf", "PostgreSQL", "Redis", "MinIO", "RabbitMQ"],
     impact: "Powers promo management, eligibility matching, and bookkeeping scheduling for BRI's QRIS cashback loyalty platform.",
-    image: undefined as string | undefined,
+    images: [] as string[],
     fullDescription: `Built and maintain several Go/gRPC microservices behind BRI's QRIS cashback loyalty platform.
 
 Key Features Developed:
@@ -102,7 +102,7 @@ Impact:
     description: "The NestJS microservice and gateway behind QRIS promo cashback transactions, hardened for reliability and security under real transaction volume.",
     techStack: ["NestJS", "TypeScript", "TypeORM", "PostgreSQL", "Redis", "RabbitMQ"],
     impact: "Hardened the QRIS promo cashback transaction pipeline against race conditions, duplicate transactions, and a SQL injection/XSS finding.",
-    image: undefined as string | undefined,
+    images: [] as string[],
     fullDescription: `Own the QRIS promo cashback lifecycle and transaction pipeline, spanning the qris-microservice and its gateway.
 
 Key Features Developed:
@@ -125,7 +125,7 @@ Impact:
     description: "Authentication, registration, and profile features in Flutter for a digital banking app's customer onboarding.",
     techStack: ["Flutter", "Golang", "PostgreSQL", "Redis", "JWT", "VIDA e-KYC", "OAuth 2.0"],
     impact: "Built the full authentication and security layer for a digital banking app's customer onboarding.",
-    image: undefined as string | undefined,
+    images: ["/images/projects/mobile-banking-1.webp", "/images/projects/mobile-banking-2.webp"] as string[],
     fullDescription: `Key Features Developed:
 
 - Authentication System: Password, PIN, and biometric login; device management with IMEI tracking for single-device enforcement; OTP-based account recovery
@@ -144,7 +144,7 @@ Impact:
     description: "Admin authentication, customer management, and role-based authorization for a digital banking backoffice.",
     techStack: ["Next.js", "Golang", "PostgreSQL", "WebSocket", "JWT"],
     impact: "Built RBAC authorization and a maker-checker workflow engine shared across customer management, KYC, and admin operations.",
-    image: undefined as string | undefined,
+    images: ["/images/projects/backoffice.webp"] as string[],
     fullDescription: `Key Features Developed:
 
 - Admin Authentication: Login, logout, forgot/reset password with OTP, refresh tokens, and JWT middleware
@@ -163,7 +163,7 @@ Impact:
     description: "Authentication, order management, and Xendit-based payments for a contractor material marketplace.",
     techStack: ["Next.js", "Golang", "PostgreSQL", "JWT", "Xendit"],
     impact: "Built the end-to-end order flow and payment integration for a contractor material marketplace.",
-    image: undefined as string | undefined,
+    images: ["/images/projects/ecommerce-kontraktor.webp"] as string[],
     fullDescription: `Key Features Developed:
 
 - Authentication System: Registration with email verification, login, and password reset using JWT and bcrypt
@@ -182,7 +182,7 @@ Impact:
     description: "Project tracking, job lists, and quality-control workflows for real estate development operations.",
     techStack: ["Next.js", "Node.js", "Express.js", "TypeScript", "PostgreSQL", "Google Docs API"],
     impact: "Built project tracking, QC workflows, and budget management used across real estate development operations.",
-    image: undefined as string | undefined,
+    images: [] as string[],
     fullDescription: `Key Features Developed:
 
 - Job List Management: CRUD for construction jobs linked to construction types and RAB output objects, integrated with progress tracking
@@ -201,7 +201,7 @@ Impact:
     description: "Unit evaluation module for on-site construction quality assessments, built for field inspectors.",
     techStack: ["React Native", "Node.js", "Express.js", "PostgreSQL", "FFmpeg"],
     impact: "Built the unit evaluation and evidence-capture workflow used by field inspectors on-site.",
-    image: undefined as string | undefined,
+    images: ["/images/projects/qc-app-1.webp", "/images/projects/qc-app-2.webp"] as string[],
     fullDescription: `Key Features Developed:
 
 - Unit Evaluation: Auto-generated evaluation versions with criteria, list views with pagination/filtering, and cascading soft delete
@@ -222,7 +222,7 @@ Impact:
     description: "Pricelist, promo, and payment management for real estate sales teams.",
     techStack: ["React.js", "Node.js", "Express.js", "PocketBase", "PostgreSQL", "Xendit"],
     impact: "Centralized pricelist, promo, and payment workflows for real estate sales teams.",
-    image: undefined as string | undefined,
+    images: ["/images/projects/crm.webp"] as string[],
     fullDescription: `Key Features Developed:
 
 - Pricelist Management: Form-based configuration of price lists per property unit type

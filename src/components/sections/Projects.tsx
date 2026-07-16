@@ -36,20 +36,25 @@ export default function Projects() {
               transition={{ duration: 0.2 }}
               className="border border-[#1a1a1a] bg-gradient-to-br from-[#0a0a0a] to-[#080808] flex flex-col h-full cursor-pointer rounded-lg group transition-all duration-300 hover:border-[var(--accent)] overflow-hidden"
             >
-              {project.image && (
+              {project.images.length > 0 && (
                 <div className="relative w-full aspect-video border-b border-[#1a1a1a]">
                   <Image
-                    src={project.image}
+                    src={project.images[0]}
                     alt={`${project.name} screenshot`}
                     fill
                     className="object-cover"
                   />
+                  {project.images.length > 1 && (
+                    <span className="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded font-[family-name:var(--font-jetbrains-mono)]">
+                      +{project.images.length - 1} more
+                    </span>
+                  )}
                 </div>
               )}
 
               <div className="p-4 md:p-6 flex flex-col flex-grow">
               <div className="flex items-center justify-between mb-2 md:mb-3">
-                {!project.image && (
+                {project.images.length === 0 && (
                   <span className="text-accent text-xl md:text-2xl">📁</span>
                 )}
                 <span className="text-[#666] text-[10px] md:text-xs font-[family-name:var(--font-jetbrains-mono)] bg-[#111] px-2 py-0.5 rounded ml-auto">
@@ -100,7 +105,7 @@ export default function Projects() {
         techStack={selectedProject?.techStack}
         content={selectedProject?.fullDescription || ""}
         impact={selectedProject?.impact}
-        image={selectedProject?.image}
+        images={selectedProject?.images}
       />
     </section>
   );

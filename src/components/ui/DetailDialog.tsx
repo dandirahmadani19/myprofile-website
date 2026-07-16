@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaTimes, FaCheckCircle, FaArrowRight } from "react-icons/fa";
+import { FaTimes, FaCheckCircle, FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import TechBadge from "./TechBadge";
 
 interface DetailDialogProps {
@@ -15,7 +16,7 @@ interface DetailDialogProps {
   techStack?: string[];
   content: string;
   impact?: string;
-  image?: string;
+  images?: string[];
 }
 
 export default function DetailDialog({
@@ -28,8 +29,13 @@ export default function DetailDialog({
   techStack,
   content,
   impact,
-  image,
+  images = [],
 }: DetailDialogProps) {
+  const [activeImage, setActiveImage] = useState(0);
+
+  useEffect(() => {
+    if (isOpen) setActiveImage(0);
+  }, [isOpen]);
   // Format content with beautiful bullet points
   const formatContent = (text: string) => {
     return text.split("\n").map((line, index) => {
@@ -173,14 +179,66 @@ export default function DetailDialog({
 
             {/* Content */}
             <div className="flex-1 overflow-y-auto p-4 md:p-6">
-              {image && (
-                <div className="relative w-full aspect-video mb-6 rounded-lg overflow-hidden border border-[#1a1a1a]">
-                  <Image
-                    src={image}
-                    alt={`${title} screenshot`}
-                    fill
-                    className="object-cover"
-                  />
+              {images.length > 0 && (
+                <div className="mb-6">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-[#1a1a1a] bg-black">
+                    <Image
+                      src={images[activeImage]}
+                      alt={`${title} screenshot ${activeImage + 1}`}
+                      fill
+                      className="object-contain"
+                    />
+                    {images.length > 1 && (
+                      <>
+                        <button
+                          onClick={() =>
+                            setActiveImage(
+                              (i) => (i - 1 + images.length) % images.length,
+                            )
+                          }
+                          aria-label="Previous screenshot"
+                          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 bg-black/60 text-white rounded-full hover:bg-accent/80 transition-colors"
+                        >
+                          <FaChevronLeft size={12} />
+                        </button>
+                        <button
+                          onClick={() =>
+                            setActiveImage((i) => (i + 1) % images.length)
+                          }
+                          aria-label="Next screenshot"
+                          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 bg-black/60 text-white rounded-full hover:bg-accent/80 transition-colors"
+                        >
+                          <FaChevronRight size={12} />
+                        </button>
+                        <span className="absolute bottom-2 right-2 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded font-[family-name:var(--font-jetbrains-mono)]">
+                          {activeImage + 1} / {images.length}
+                        </span>
+                      </>
+                    )}
+                  </div>
+
+                  {images.length > 1 && (
+                    <div className="flex gap-2 mt-2 overflow-x-auto pb-1 scrollbar-hide">
+                      {images.map((img, i) => (
+                        <button
+                          key={img}
+                          onClick={() => setActiveImage(i)}
+                          className={`relative flex-shrink-0 w-16 h-10 rounded overflow-hidden border-2 transition-colors ${
+                            i === activeImage
+                              ? "border-accent"
+                              : "border-transparent opacity-60 hover:opacity-100"
+                          }`}
+                        >
+                          <Image
+                            src={img}
+                            alt={`${title} thumbnail ${i + 1}`}
+                            fill
+                            className="object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )}
 
