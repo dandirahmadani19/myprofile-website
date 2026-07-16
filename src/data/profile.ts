@@ -80,7 +80,7 @@ export const projects = [
     description: "QRIS cashback loyalty and mission-based gamification platform at BRI, built as Go/gRPC microservices.",
     techStack: ["Golang", "gRPC", "grpc-gateway", "protobuf", "PostgreSQL", "Redis", "MinIO", "RabbitMQ"],
     impact: "Powers promo management, eligibility matching, and bookkeeping scheduling for BRI's QRIS cashback loyalty platform.",
-    images: [] as string[],
+    images: ["/images/projects/default.webp"] as string[],
     fullDescription: `Built and maintain several Go/gRPC microservices behind BRI's QRIS cashback loyalty platform.
 
 Key Features Developed:
@@ -102,7 +102,7 @@ Impact:
     description: "The NestJS microservice and gateway behind QRIS promo cashback transactions, hardened for reliability and security under real transaction volume.",
     techStack: ["NestJS", "TypeScript", "TypeORM", "PostgreSQL", "Redis", "RabbitMQ"],
     impact: "Hardened the QRIS promo cashback transaction pipeline against race conditions, duplicate transactions, and a SQL injection/XSS finding.",
-    images: [] as string[],
+    images: ["/images/projects/default.webp"] as string[],
     fullDescription: `Own the QRIS promo cashback lifecycle and transaction pipeline, spanning the qris-microservice and its gateway.
 
 Key Features Developed:
@@ -182,7 +182,7 @@ Impact:
     description: "Project tracking, job lists, and quality-control workflows for real estate development operations.",
     techStack: ["Next.js", "Node.js", "Express.js", "TypeScript", "PostgreSQL", "Google Docs API"],
     impact: "Built project tracking, QC workflows, and budget management used across real estate development operations.",
-    images: [] as string[],
+    images: ["/images/projects/default.webp"] as string[],
     fullDescription: `Key Features Developed:
 
 - Job List Management: CRUD for construction jobs linked to construction types and RAB output objects, integrated with progress tracking
